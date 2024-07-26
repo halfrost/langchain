@@ -17,6 +17,7 @@ access to the large language model (**LLM**) APIs and services.
     CallbackManager, AsyncCallbackManager,
     AIMessage, BaseMessage
 """  # noqa: E501
+
 import warnings
 from typing import Any, Callable, Dict, Type
 
@@ -540,6 +541,12 @@ def _import_volcengine_maas() -> Any:
     return VolcEngineMaasLLM
 
 
+def _import_volcengine_maas_v3() -> Any:
+    from langchain_community.llms.volcengine_maas import VolcEngineMaasLLMV3
+
+    return VolcEngineMaasLLMV3
+
+
 def __getattr__(name: str) -> Any:
     from langchain_community import llms
 
@@ -646,6 +653,7 @@ __all__ = [
     "QianfanLLMEndpoint",
     "YandexGPT",
     "VolcEngineMaasLLM",
+    "VolcEngineMaasLLMV3",
 ]
 
 
@@ -730,4 +738,5 @@ def get_type_to_cls_dict() -> Dict[str, Callable[[], Type[BaseLLM]]]:
         "qianfan_endpoint": _import_baidu_qianfan_endpoint,
         "yandex_gpt": _import_yandex_gpt,
         "VolcEngineMaasLLM": _import_volcengine_maas,
+        "VolcEngineMaasLLMV3": _import_volcengine_maas_v3,
     }

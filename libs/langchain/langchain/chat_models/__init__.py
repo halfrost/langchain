@@ -16,6 +16,7 @@ an interface where "chat messages" are the inputs and outputs.
 
     AIMessage, BaseMessage, HumanMessage
 """  # noqa: E501
+
 import warnings
 
 from langchain_core._api import LangChainDeprecationWarning
@@ -73,4 +74,5 @@ __all__ = [
     "ChatHunyuan",
     "GigaChat",
     "VolcEngineMaasChat",
+    "VolcEngineMaasChatV3",
 ]
